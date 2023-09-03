@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Try</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+.album-cover {
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.album-details {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.album-details h1 {
+    color: #343a40;
+}
+
+.description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.comments-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        </nav>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="album.jpg" class="img-fluid" alt="{{ album.title }}">
+                </div>
+                <div class="col-md-6">
+                    <h1>Try</h1>
+                    <p class="lead">Artist: Lil Uzi</p>
+                    <p>Release Date: 20 October 2023</p>
+                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices ultricies nisl, sit amet tristique justo venenatis eu.</p>
+                    <a href="albums.html" class="btn btn-primary">Back to Albums</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <ul class="list-unstyled">
+                {% if album.comments %}
+                    <li class="comment">{{ album.comments }}</li>
+                {% else %}
+                    <li class="comment">No comments yet.</li>
+                {% endif %}
+            </ul>
+    </div>
+
+    <h3>Leave a Comment</h3>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <textarea name="comments" class="form-control" rows="4" placeholder="Leave your comment here"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
